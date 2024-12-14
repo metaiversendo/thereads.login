@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Threads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .login-container {
+            width: 360px;
+            padding: 40px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container img {data:image/png;base64,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
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .login-container button:hover {
+            background-color: #555;
+        }
+
+        .login-container .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .login-container .footer a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-container .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Threads_app_logo.svg/1024px-Threads_app_logo.svg.png" alt="Threads Logo">
+        <h1>Log in to Threads</h1>
+        <form action="#" method="POST">
+            <input type="text" name="username" placeholder="Username or email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <div class="footer">
+            <p>Don’t have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
